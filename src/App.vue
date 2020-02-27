@@ -6,31 +6,40 @@
         <span class="page-title">Blockchain Jobs</span>
       </template>
     </el-page-header>
-    <div>content</div>
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
+
 export default {
   name: "app",
+  computed: {
+    ...mapState(["adviewJobs"])
+  },
   methods: {
+    ...mapActions(["getAdviewJobs"]),
+
     goBack: () => window.open("https://cryptoinfos.eu/", "_self")
+  },
+  mounted() {
+    this.getAdviewJobs();
   }
 };
 </script>
 
-<style>
+<style scoped>
 .page-header {
   margin: 25px 15px;
-}
-
-.page-title {
-  margin-left: 115px;
 }
 
 .logo {
   position: absolute;
   height: 60px;
   top: 5px;
+}
+
+.page-title {
+  margin-left: 115px;
 }
 </style>
