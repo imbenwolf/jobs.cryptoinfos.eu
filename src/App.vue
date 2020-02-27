@@ -1,36 +1,36 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png" />
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <el-page-header class="page-header" @back="goBack">
+      <template slot="content">
+        <img class="logo" src="./assets/crypto-infos-logo.png" />
+        <span class="page-title">Blockchain Jobs</span>
+      </template>
+    </el-page-header>
+    <div>content</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "app",
-  components: {
-    HelloWorld
+  methods: {
+    goBack: () => window.open("https://cryptoinfos.eu/", "_self")
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.page-header {
+  margin: 25px 15px;
+}
+
+.page-title {
+  margin-left: 115px;
+}
+
+.logo {
+  position: absolute;
+  height: 60px;
+  top: 5px;
 }
 </style>
